@@ -9,6 +9,7 @@ class Project(models.Model):
     image = models.ImageField(upload_to = 'images/')
     descriptioin = models.TextField(null = True)
     profile = models.ForeignKey("Profile", on_delete = models.CASCADE, null = True)
+    user = models.ForeignKey(User, on_delete = models.CASCADE, null = True)
     link = models.CharField(max_length = 2000)
     id = models.UUIDField(default = uuid.uuid4, unique = True, primary_key = True, editable = False)
     posted = models.DateTimeField(auto_now_add = True)
