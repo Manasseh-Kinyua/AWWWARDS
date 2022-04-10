@@ -3,18 +3,20 @@
 {% block content %}
 <div class="container">
     <div class="row">
-      <div class="col-sm">
+      {% for project in projects %}
+      <div class="col-sm bg-light m-1">
+        <img style="width: 100%; height: 200px; background-color: black;" src="{{ project.image.url }}" alt="">
+        One of three columns
+      </div>
+      {% endfor %}
+      <!-- <div class="col-sm">
         <img style="width: 100%;" src="https://thumbs.dreamstime.com/b/projects-concept-black-chalkboard-d-rendering-handwritten-top-view-office-desk-lot-business-office-supplies-79906734.jpg" alt="">
         One of three columns
       </div>
       <div class="col-sm">
         <img style="width: 100%;" src="https://thumbs.dreamstime.com/b/projects-concept-black-chalkboard-d-rendering-handwritten-top-view-office-desk-lot-business-office-supplies-79906734.jpg" alt="">
         One of three columns
-      </div>
-      <div class="col-sm">
-        <img style="width: 100%;" src="https://thumbs.dreamstime.com/b/projects-concept-black-chalkboard-d-rendering-handwritten-top-view-office-desk-lot-business-office-supplies-79906734.jpg" alt="">
-        One of three columns
-      </div>
+      </div> -->
     </div>
   </div>
 {% endblock %}
