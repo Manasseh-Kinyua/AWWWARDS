@@ -4,9 +4,11 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 def loginPage(request):
+    page = 'login'
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -22,12 +24,21 @@ def loginPage(request):
             return redirect('index')
         else:
             messages.error(request, 'Username or password does not exist')
-    context = {}
+    context = {
+        "page": page
+    }
     return render(request, 'awards/login_register.html', context)
 
 def logoutUser(request):
     logout(request)
     return redirect('index')
+
+def registerUser(request):
+    form = UserCreationForm()
+    context = {
+        "form": form,
+    }
+    return render(request, 'awards/login_register.html', context)
 
 def index(request):
     projects = Project.objects.all()
