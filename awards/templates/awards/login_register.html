@@ -3,12 +3,12 @@
 {% block content %}
 <div>
     <form method="POST" action="">
-        {csrf_token}
+        {%csrf_token%}
         <label for="">Username</label>
-        <input type="text" value="username" placeholder="Enter Username">
+        <input type="text" name="username" placeholder="Enter Username">
 
         <label for="">Password</label>
-        <input type="text" value="password" placeholder="Enter Password">
+        <input type="text" name="password" placeholder="Enter Password">
 
         <input type="submit" value="Login">
 
