@@ -1,5 +1,5 @@
 from django.shortcuts import render,redirect
-from .models import Project
+from .models import Project, Profile
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
@@ -37,9 +37,9 @@ def registerUser(request):
     form = UserCreationForm()
 
     if request.method == 'POST':
-        form = UserCreationForm()
+        form = UserCreationForm(request.POST)
         if form.is_valid():
-            user = form.save(commit = False)
+            user = form.save(commit=False)
             user.username = user.username.lower()
             user.save()
             login(request, user)
@@ -60,4 +60,8 @@ def index(request):
 
 @login_required(login_url = 'login')
 def profile(request):
-    return render(request, 'awards/profile.html')
+    profile = Profile.objects.all()
+    context = {
+        "profile": profile,
+    }
+    return render(request, 'awards/profile.html', context)
