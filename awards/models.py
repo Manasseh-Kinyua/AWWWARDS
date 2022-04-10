@@ -8,7 +8,7 @@ class Project(models.Model):
     title = models.CharField(max_length = 100)
     image = models.ImageField(upload_to = 'images/')
     descriptioin = models.TextField(null = True)
-    profile = models.ForeignKey("Profile", on_delete = models.CASCADE, null = True)
+    profile = models.ForeignKey("Profile", on_delete = models.CASCADE, null = True, blank = True)
     user = models.ForeignKey(User, on_delete = models.CASCADE, null = True)
     link = models.CharField(max_length = 2000)
     location = models.CharField(max_length = 100, null = True)
