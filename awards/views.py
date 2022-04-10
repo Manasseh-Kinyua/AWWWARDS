@@ -19,6 +19,8 @@ def loginPage(request):
         if user is not None:
             login(request, user)
             return redirect('index')
+        else:
+            messages.error(request, 'Username or password does not exist')
     context = {}
     return render(request, 'awards/login_register.html', context)
 
