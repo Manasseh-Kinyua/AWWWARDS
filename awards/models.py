@@ -18,6 +18,20 @@ class Project(models.Model):
     def __str__(self):
         return self.title
 
+    def delete_project(self):
+        self.delete()
+
+    @classmethod
+    def search_project(cls, title):
+        return cls.objects.filter(title__icontains=title).all()
+
+    @classmethod
+    def all_projects(cls):
+        return cls.objects.all()
+
+    def save_project(self):
+        self.save()
+
 class Profile(models.Model):
     profile_pic = models.ImageField(upload_to = 'images/')
     bio = models.TextField(null=True)
