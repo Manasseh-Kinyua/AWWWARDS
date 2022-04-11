@@ -7,7 +7,9 @@
       {% for project in projects %}
       <div class="col-sm bg-light m-1">
         <img style="width: 100%; height: 200px; background-color: black;" src="{{ project.image.url }}" alt="">
-        One of three columns
+        <p><a target="_blank" href="{{ project.link }}">See Project</a></p>
+        <p>Description: {{ project.descriptioin }}</p>
+        <p>By @{{project.user}} From {{project.location}}</p>
       </div>
       {% endfor %}
     </div>
