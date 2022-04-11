@@ -7,7 +7,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from .serializer import ProjectSerializer
+from .serializer import ProjectSerializer, ProfileSerializer
 
 
 # Create your views here.
@@ -74,4 +74,10 @@ class ProjectsList(APIView):
     def get(self, request, format=None):
         all_projects = Project.objects.all()
         serializers = ProjectSerializer(all_projects, many=True)
+        return Response(serializers.data)
+
+class ProfilesList(APIView):
+    def get(self, request, format=None):
+        all_profiles = Profile.objects.all()
+        serializers = ProfileSerializer(all_profiles, many=True)
         return Response(serializers.data)

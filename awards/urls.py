@@ -10,6 +10,7 @@ urlpatterns = [
     path('', views.index, name = 'index'),
     path('profile/', views.profile, name = 'profile'),
     path('api/projects/', views.ProjectsList.as_view()),
+    path('api/profiles/', views.ProfilesList.as_view()),
 ]
 
 if settings.DEBUG:
