@@ -41,6 +41,7 @@ INSTALLED_APPS = [
 
     'awards',
     'django_bootstrap5',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
