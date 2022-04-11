@@ -1,4 +1,5 @@
 {% load django_bootstrap5 %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,11 +8,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>myawwwards</title>
     {% block styles%}
-        {% bootstrap_css%}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    {% bootstrap_css%}
     {% endblock %}
 </head>
 <body>
     {% include 'navbar.html' %}
+    <div style="background-image: url('');" class="container-fluid head">
+
+    </div>
 
     {% if messages %}
     <ul class="messages">

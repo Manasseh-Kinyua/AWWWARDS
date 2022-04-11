@@ -1,0 +1,4 @@
+.head {
+    background-image:url('{{ STATIC_URL }}img/awards.png');
+    height: 100%;
+}
