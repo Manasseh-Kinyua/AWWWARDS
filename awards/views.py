@@ -5,6 +5,10 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
+from rest_framework.response import Response
+from rest_framework.views import APIView
+from .serializer import ProjectSerializer
+
 
 # Create your views here.
 def loginPage(request):
@@ -65,3 +69,9 @@ def profile(request):
         "profile": profile,
     }
     return render(request, 'awards/profile.html', context)
+
+class ProjectsList(APIView):
+    def get(self, request, format=None):
+        all_projects = Project.objects.all()
+        serializers = ProjectSerializer(all_projects, many=True)
+        return Response(serializers.data)

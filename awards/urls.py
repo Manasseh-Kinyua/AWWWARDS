@@ -9,6 +9,7 @@ urlpatterns = [
     path('register/', views.registerUser, name = 'register'),
     path('', views.index, name = 'index'),
     path('profile/', views.profile, name = 'profile'),
+    path('api/projects/', views.ProjectsList.as_view()),
 ]
 
 if settings.DEBUG:
